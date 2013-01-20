@@ -1,5 +1,5 @@
-# an implementation of Eratosthenes' Sieve:
-#   http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+# this is an implementation of the Eratosthenes' Sieve using
+# a generator.
 
 _primeslist = [2]
 
@@ -9,15 +9,11 @@ def _is_prime(primes, n):
             return False
     return True
 
-def next():
+def sieve():
     start = _primeslist[-1] + 1
     while 1:
         if _is_prime(_primeslist, start):
             _primeslist.append(start)
-            return start
+            yield start
 
         start += 1
-
-for n in range(10):
-    print next()
-

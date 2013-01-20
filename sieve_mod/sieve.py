@@ -1,5 +1,5 @@
-# an implementation of Eratosthenes' Sieve:
-#   http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+# Implementation of Eratosthenes' Sieve by Michael Meldrum:
+# Modular form
 
 _primeslist = [2]
 
@@ -10,6 +10,7 @@ def _is_prime(primes, n):
     return True
 
 def next():
+    global _primeslist
     start = _primeslist[-1] + 1
     while 1:
         if _is_prime(_primeslist, start):
@@ -17,7 +18,3 @@ def next():
             return start
 
         start += 1
-
-for n in range(10):
-    print next()
-
